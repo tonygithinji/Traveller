@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:traveller/widgets/top_destinations.widget.dart';
+import 'package:traveller/widgets/top_hotels.widget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  int _currentTabIndex = 0;
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
     FontAwesomeIcons.bed,
@@ -75,8 +77,41 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 20),
             TopDestinations(),
+            SizedBox(height: 20),
+            TopHotels(),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (int value) {
+          setState(() {
+            _currentTabIndex = value;
+          });
+        },
+        currentIndex: _currentTabIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              FontAwesomeIcons.search,
+              size: 20.0,
+            ),
+            title: SizedBox.shrink(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              FontAwesomeIcons.home,
+              size: 20.0,
+            ),
+            title: SizedBox.shrink(),
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              backgroundImage: AssetImage("assets/images/user.jpg"),
+              radius: 15.0,
+            ),
+            title: SizedBox.shrink(),
+          ),
+        ],
       ),
     );
   }
