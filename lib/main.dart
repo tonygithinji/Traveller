@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:traveller/screens/home.screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFFD8ECF2),
         scaffoldBackgroundColor: Color(0xFFF3F5F7),
       ),
-      home: Text(""),
+      home: Home(),
     );
   }
 }
